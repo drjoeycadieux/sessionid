@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 useHead({
   title: 'SessionID - Techtack-Technologies',
   meta: [
