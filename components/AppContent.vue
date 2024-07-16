@@ -6,7 +6,9 @@
                 their visit to a website. It plays a crucial role in maintaining stateful interactions between the
                 user's browser and the web server throughout a session.
             </p>
-            <img style="border-radius: 15px;" class="img" width="500" height="500" src="/assets/app.jpeg" />
+            <a href="https://sessionid.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <img style="border-radius: 15px;" class="img" width="500" height="500" src="/assets/app.jpeg" />
+            </a>
         </div>
     </div>
 </template>
