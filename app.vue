@@ -1,6 +1,4 @@
-<script>
-import AppContent from './components/AppContent.vue';
-
+<script lang="ts">
 useHead({
   title: 'SessionID - Techtack-Technologies',
   meta: [
