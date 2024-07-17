@@ -14,7 +14,8 @@
 <style>
 .header {
     padding: 125px;
-    background-color: rgb(10, 9, 9);
+    background-color: #161616;
+    border: 1px #7c7c7c solid;
 }
 
 .header p {

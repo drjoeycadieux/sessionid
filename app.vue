@@ -47,6 +47,7 @@ useHead({
 .navbar {
   padding: 15px;
   background-color: #161616;
+  border: 1px #7c7c7c solid;
 }
 
 .navbar ul {
