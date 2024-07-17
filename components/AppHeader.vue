@@ -32,7 +32,6 @@
     text-align: center;
 }
 
-/* Desktop responvise && Mobile */
 @media only screen and (min-width: 1024px) {
   .header p {
     font-size: 4rem;
