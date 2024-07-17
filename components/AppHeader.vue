@@ -49,7 +49,7 @@
 
 @media (max-width: 768px) {
     .header p {
-       font-size: 25px;
+       font-size: 16px;
     }
 }
 
