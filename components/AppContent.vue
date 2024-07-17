@@ -7,7 +7,7 @@
                 user's browser and the web server throughout a session.
             </p>
             <a href="https://sessionid.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <img style="border-radius: 15px; border: 2px solid #161616;" class="img" width="500" height="500" src="/assets/app.jpeg" />
+                <img style="border-radius: 15px; border: 2px solid #161616;" class="img" width="500" height="500" src="/assets/apps1.jpeg" />
             </a>
         </div>
     </div>
