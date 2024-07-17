@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
     img {
-        width: 100%;
+        width: 85%;
         margin: auto;
     }
 }
