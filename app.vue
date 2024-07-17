@@ -16,7 +16,6 @@ useSeoMeta({
         </li>
       </ul>
     </div>
-    <hr>
     <AppHeader />
     <AppContent />
     <br>

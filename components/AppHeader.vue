@@ -33,29 +33,34 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .header p {
-    font-size: 4rem;
-  } 
-  .header h3 {
-    font-size: 2rem;
-  }
+    .header p {
+        font-size: 4rem;
+    }
+
+    .header h3 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
     .header {
         padding: 125px;
+        position: relative;
+        z-index: 5;
+        border-bottom-left-radius: 15% 39px;
+        border-bottom-right-radius: 15% 39px;
     }
 }
 
 @media (max-width: 768px) {
     .header p {
-       font-size: 16px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
     .header h3 {
-       font-size: 16px;
+        font-size: 16px;
     }
 }
 </style>
