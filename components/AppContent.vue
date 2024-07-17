@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="apps">
         <div class="app-content">
             <p>
                 A session ID, often referred to simply as sessionid, is a unique identifier assigned to a user during
@@ -25,7 +25,7 @@
 
 .app-content p {
     padding: 16px;
-    color: #161616;
+    color: #ffff;
     font-family: sans-serif;
     font-weight: bold;
     font-size: 20px;

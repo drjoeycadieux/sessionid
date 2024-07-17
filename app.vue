@@ -30,6 +30,9 @@ useSeoMeta({
   padding: 0;
   margin: 0;
 }
+body {
+  background-color: #161616;
+}
 
 .title {
   display: inline;
