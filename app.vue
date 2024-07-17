@@ -7,7 +7,6 @@ useHead({
   bodyAttrs: {
     class: 'In Development'
   },
-  script: [{ innerHTML: 'console.log(\'Hello world\')' }]
 })
 </script>
 
