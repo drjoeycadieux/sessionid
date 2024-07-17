@@ -1,9 +1,7 @@
-<script setup lang="ts">
-useHead({
-  title: 'SessionID - Techtack-Technologies',
-  meta: [
-    { name: 'Techtack-Technologies', content: 'Powered By TeamLitho' }
-  ],
+<script setup>
+useSeoMeta({
+  title: 'SessionID - Powered By Techtack-Technologies',
+  description: 'Our Parent Company From TeamLitho'
 })
 </script>
 
