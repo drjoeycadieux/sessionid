@@ -7,7 +7,8 @@
                 user's browser and the web server throughout a session.
             </p>
             <a href="https://sessionid.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <img style="border-radius: 15px; border: 2px solid #161616;" class="img" width="500" height="500" src="/assets/apps1.jpeg" />
+                <img style="border-radius: 15px; border: 2px solid #161616;" class="img" width="500" height="500"
+                    src="/assets/apps1.jpeg" />
             </a>
         </div>
     </div>
@@ -27,8 +28,14 @@
     color: #161616;
     font-family: sans-serif;
     font-weight: bold;
-    width: 800px;
-    font-size: 23px;
-    margin: auto;
+    font-size: 20px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    img {
+        width: 100%;
+        margin: auto;
+    }
 }
 </style>
