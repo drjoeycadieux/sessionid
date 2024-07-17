@@ -26,10 +26,31 @@ useSeoMeta({
 
 
 <style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 * {
   padding: 0;
   margin: 0;
 }
+
 body {
   background-color: #161616;
 }
