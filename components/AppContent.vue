@@ -32,6 +32,14 @@
     margin: 0;
 }
 
+@media only screen and (min-width: 1024px) {
+   .app-content p {
+      width: 800px;
+      margin: auto;
+      padding: 25px;
+   } 
+}
+
 @media (max-width: 768px) {
     img {
         width: 100%;

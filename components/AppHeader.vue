@@ -32,6 +32,7 @@
     text-align: center;
 }
 
+/* Desktop responvise && Mobile */
 @media only screen and (min-width: 1024px) {
   .header p {
     font-size: 4rem;
@@ -49,6 +50,12 @@
 
 @media (max-width: 768px) {
     .header p {
+       font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h3 {
        font-size: 16px;
     }
 }
