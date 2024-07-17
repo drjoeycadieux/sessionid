@@ -36,7 +36,6 @@ useSeoMeta({
   font-family: sans-serif;
   color: white;
   font-size: 23px;
-  text-decoration: underline;
 }
 
 .navbar {
