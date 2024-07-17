@@ -2,9 +2,9 @@
     <div>
         <div class="header">
             <p>
-                SessionID
+                SessionID <i class="bi bi-fingerprint"></i>
             </p>
-            <h3>Authentification Session ID</h3>
+            <h3> <i class="bi bi-shield-fill-check"></i> Authentification & Identification</h3>
         </div>
     </div>
 </template>
@@ -13,6 +13,7 @@
 
 
 <style>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 .header {
     padding: 125px;
     background-color: #2d3748;
