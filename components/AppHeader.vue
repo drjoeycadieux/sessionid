@@ -24,13 +24,26 @@
     font-weight: bold;
     color: white;
     font-size: 16px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .header h3 {
     color: white;
     font-family: sans-serif;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
 }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 
 @media only screen and (min-width: 1024px) {
     .header p {
