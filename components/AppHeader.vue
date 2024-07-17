@@ -2,7 +2,7 @@
     <div>
         <div class="header">
            <p>
-            SessionID
+            SessionID - Secure Access For Agent
            </p>
            <h3>Authentification Session ID</h3>
         </div>
@@ -16,7 +16,6 @@
 .header {
     padding: 125px;
     background-color: #161616;
-    border: 2px #7c7c7c solid;
 }
 
 .header p {

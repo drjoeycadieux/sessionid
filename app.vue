@@ -4,9 +4,6 @@ useHead({
   meta: [
     { name: 'Techtack-Technologies', content: 'Powered By TeamLitho' }
   ],
-  bodyAttrs: {
-    class: 'In Development'
-  },
 })
 </script>
 
@@ -21,6 +18,7 @@ useHead({
         </li>
       </ul>
     </div>
+    <hr>
     <AppHeader />
     <AppContent />
     <br>
@@ -47,7 +45,6 @@ useHead({
 .navbar {
   padding: 15px;
   background-color: #161616;
-  border: 1px #7c7c7c solid;
 }
 
 .navbar ul {
