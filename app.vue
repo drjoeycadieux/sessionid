@@ -12,7 +12,7 @@ useSeoMeta({
     <div class="navbar">
       <ul>
         <li>
-          <p class="title">SessionID</p>
+          <p class="title">Secure Access For Agent</p>
         </li>
       </ul>
     </div>

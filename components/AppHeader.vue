@@ -2,7 +2,7 @@
     <div>
         <div class="header">
             <p>
-                SessionID - Secure Access For Agent
+                SessionID
             </p>
             <h3>Authentification Session ID</h3>
         </div>
@@ -54,7 +54,7 @@
 
 @media (max-width: 768px) {
     .header p {
-        font-size: 16px;
+        font-size: 2rem;
     }
 }
 
