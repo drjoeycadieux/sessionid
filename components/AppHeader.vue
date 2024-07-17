@@ -15,7 +15,7 @@
 <style>
 .header {
     padding: 125px;
-    background-color: #161616;
+    background-color: #2d3748;
 }
 
 .header p {
