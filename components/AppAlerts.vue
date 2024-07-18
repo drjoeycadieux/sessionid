@@ -14,7 +14,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 .alerts-banner {
-    padding: 6px;
+    padding: 10px;
     background-color: purple;
 }
 
