@@ -8,7 +8,7 @@ useSeoMeta({
 
 
 <template>
-  <AppAlerts/>
+  <AppAlerts />
   <div>
     <div class="navbar">
       <ul>
@@ -20,8 +20,7 @@ useSeoMeta({
     <AppHeader />
     <AppContent />
     <br>
-    <ContactForm/> 
-    <br>
+    <ContactForm />
     <AppFooter />
   </div>
 </template>
