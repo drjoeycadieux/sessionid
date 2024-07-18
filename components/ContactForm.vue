@@ -43,7 +43,6 @@ export default {
                 console.error('Error submitting form:', error.message);
             } else {
                 console.log('Form submitted successfully:', data);
-                // Optionally, reset the form
                 this.formData = { name: '', email: '', message: '' };
             }
         }
@@ -56,7 +55,6 @@ export default {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
@@ -85,7 +83,7 @@ export default {
 }
 
 .btn-submit {
-    background-color: #007bff;
+    background-color: #2d3748;
     color: white;
     padding: 10px 20px;
     border: none;
