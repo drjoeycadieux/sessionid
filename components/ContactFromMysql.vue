@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         submitForm() {
-            fetch('/submit-form', {
+            fetch('/submitForm', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

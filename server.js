@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
@@ -25,7 +23,7 @@ db.connect((err) => {
 app.use(express.json());
 
 // Route to handle form submissions
-app.post('/submit-form', (req, res) => {
+app.post('/submitForm', (req, res) => {
   const { name, email, message } = req.body;
   const sql = 'INSERT INTO internal (name, email, message) VALUES (?, ?, ?)';
   db.query(sql, [name, email, message], (err, result) => {
