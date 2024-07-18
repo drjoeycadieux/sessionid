@@ -40,9 +40,9 @@ export default {
             const { data, error } = await supabase.from('contact_form').insert([this.formData]);
 
             if (error) {
-                alert('Error submitting form:', error.message);
+                console.log('Error submitting form:', error.message);
             } else {
-                alert('Form submitted successfully:', data);
+                console.log('Form submitted successfully:', data);
                 this.formData = { name: '', email: '', message: '' };
             }
         }

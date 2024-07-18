@@ -20,7 +20,8 @@ useSeoMeta({
     <AppHeader />
     <AppContent />
     <br>
-    <ContactForm/>
+    <!-- <ContactForm/> -->
+    <ContactFromMysql/>
     <br>
     <AppFooter />
   </div>
