@@ -7,7 +7,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Your Email</label>
-                <input type="email" id="email" v-model="email" placeholder="Enter your email" required>
+                <input type="text" id="email" v-model="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
                 <label for="message">Your Message</label>
@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         submitForm() {
-            fetch('/submitForm', {
+            fetch('/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

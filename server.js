@@ -1,5 +1,5 @@
-const express = require('express');
-const mysql = require('mysql');
+const express = import('express');
+const mysql = import('mysql');
 const app = express();
 const port = 3000;
 
@@ -23,7 +23,7 @@ db.connect((err) => {
 app.use(express.json());
 
 // Route to handle form submissions
-app.post('/submitForm', (req, res) => {
+app.post('/', (req, res) => {
   const { name, email, message } = req.body;
   const sql = 'INSERT INTO internal (name, email, message) VALUES (?, ?, ?)';
   db.query(sql, [name, email, message], (err, result) => {
