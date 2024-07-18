@@ -40,9 +40,9 @@ export default {
             const { data, error } = await supabase.from('contact_form').insert([this.formData]);
 
             if (error) {
-                console.error('Error submitting form:', error.message);
+                alert('Error submitting form:', error.message);
             } else {
-                console.log('Form submitted successfully:', data);
+                alert('Form submitted successfully:', data);
                 this.formData = { name: '', email: '', message: '' };
             }
         }
@@ -94,6 +94,6 @@ export default {
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: #001c3a;
 }
 </style>
