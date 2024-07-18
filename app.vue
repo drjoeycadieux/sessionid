@@ -20,6 +20,8 @@ useSeoMeta({
     <AppHeader />
     <AppContent />
     <br>
+    <ContactForm/>
+    <br>
     <AppFooter />
   </div>
 </template>
