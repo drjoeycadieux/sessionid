@@ -8,6 +8,7 @@ useSeoMeta({
 
 
 <template>
+  <AppAlerts/>
   <div>
     <div class="navbar">
       <ul>
