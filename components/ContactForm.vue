@@ -88,12 +88,9 @@ export default {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
-}
-
-.btn-submit:hover {
-    background-color: #001c3a;
 }
 </style>

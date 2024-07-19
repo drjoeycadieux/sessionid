@@ -7,8 +7,9 @@
                 user's browser and the web server throughout a session.
             </p>
             <a href="https://sessionid.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <img style="border-radius: 15px; border: 2px solid #161616;" class="img" width="500" height="500"
-                    src="/assets/apps1.jpeg" />
+                <button class="button">
+                    Open Application
+                </button>
             </a>
         </div>
     </div>
@@ -33,11 +34,11 @@
 }
 
 @media only screen and (min-width: 1024px) {
-   .app-content p {
-      width: 800px;
-      margin: auto;
-      padding: 25px;
-   } 
+    .app-content p {
+        width: 800px;
+        margin: auto;
+        padding: 25px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -45,5 +46,19 @@
         width: 85%;
         margin: auto;
     }
+}
+
+.button {
+    background-color: #2d3748;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
 }
 </style>
