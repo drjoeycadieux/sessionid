@@ -85,7 +85,7 @@ export default {
 .btn-submit {
     background-color: #2d3748;
     color: white;
-    padding: 10px 20px;
+    padding: 14px 28px;
     border: none;
     border-radius: 4px;
     font-weight: bold;
