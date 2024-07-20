@@ -3,6 +3,9 @@ useSeoMeta({
   title: 'SessionID - Powered By Techtack-Technologies',
   description: 'Our Parent Company From TeamLitho'
 })
+
+import Bugsnag from '@bugsnag/js'
+Bugsnag.notify(new Error('Test error'))
 </script>
 
 
