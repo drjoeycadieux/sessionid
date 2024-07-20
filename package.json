@@ -10,6 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@bugsnag/browser-performance": "^2.7.1",
+    "@bugsnag/js": "^7.25.0",
+    "@bugsnag/plugin-vue": "^7.25.0",
     "@supabase/supabase-js": "^2.44.4",
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
