@@ -2,8 +2,13 @@
     <div class="contact-form-container">
         <form @submit.prevent="submitForm" class="contact-form">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" v-model="formData.name" class="form-control" required>
+                <label for="fname">First Name</label>
+                <input id="fname" v-model="formData.fname" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input id="lname" v-model="formData.lname" class="form-control" required>
             </div>
 
             <div class="form-group">
@@ -28,7 +33,8 @@ export default {
     data() {
         return {
             formData: {
-                name: '',
+                fname: '',
+                lname: '',
                 email: '',
                 message: ''
             }
@@ -43,7 +49,7 @@ export default {
                 console.log('Error submitting form:', error.message);
             } else {
                 console.log('Form submitted successfully:', data);
-                this.formData = { name: '', email: '', message: '' };
+                this.formData = { fname: '', lname: '', email: '', message: '' };
             }
         }
     }
