@@ -2,6 +2,6 @@
  SessionID - Techtack-Technologies Product
 </h1>
 
-### Our Application
+### Our Web Application
 
-![ourApplication!](/assets/apps1.jpeg "SessionID")
+![ourApplication!](/assets/website.jpeg "SessionID")
