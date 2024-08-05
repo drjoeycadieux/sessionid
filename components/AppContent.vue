@@ -8,7 +8,7 @@
             </p>
             <a href="https://sessionid.netlify.app/" target="_blank" rel="noopener noreferrer">
                 <button class="button">
-                    Open Application
+                    Open Web Application
                 </button>
             </a>
         </div>

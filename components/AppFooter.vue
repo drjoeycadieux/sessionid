@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Techtack-Technologies - SessionID . All rights reserved.</p>
+            <p>&copy; 2024 Techtack-Technologies - SessionID . All Rights Reserved.</p>
         </div>
     </footer>
 </template>
