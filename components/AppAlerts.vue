@@ -15,13 +15,13 @@
 
 .alerts-banner {
     padding: 10px;
-    background-color: purple;
+    background-color: #d4b415;
 }
 
 .alerts-banner p {
-    color: lightgray;
+    color: black;
     text-align: center;
     font-family: sans-serif;
-    font-weight: 500;
+    font-weight: 700;
 }
 </style>
