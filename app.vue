@@ -21,6 +21,7 @@ useSeoMeta({
     <AppContent />
     <br>
     <ContactForm />
+    <br>
     <AppFooter />
   </div>
 </template>
