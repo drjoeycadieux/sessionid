@@ -5,3 +5,10 @@
 ### Our Web Application
 
 ![ourApplication!](/assets/website.jpeg "SessionID")
+
+
+
+
+### Support Me
+
+![ourApplication!](/assets/bmc_qr.png "SessionID")
