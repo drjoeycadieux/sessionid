@@ -9,4 +9,4 @@
 
 
 ### Support Me
-<img src="/assets/bmc_qr.png" alt="SessionID" width="200" height="200">
+<img style="border-radius: 15px;" src="/assets/bmc_qr.png" alt="SessionID" width="200" height="200">
