@@ -3,12 +3,10 @@
 </h1>
 
 ### Our Web Application
-
 ![ourApplication!](/assets/website.jpeg "SessionID")
 
 
 
 
 ### Support Me
-
-![ourApplication!](/assets/bmc_qr.png "SessionID")
+<img src="/assets/bmc_qr.png" alt="SessionID" width="200" height="200">
