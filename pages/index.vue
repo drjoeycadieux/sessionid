@@ -15,6 +15,11 @@ useSeoMeta({
         <li>
           <p class="title">Secure Access For Agent</p>
         </li>
+        <li>
+          <NuxtLink to="/login">
+            Login
+          </NuxtLink>
+        </li>
       </ul>
     </div>
     <AppHeader />
