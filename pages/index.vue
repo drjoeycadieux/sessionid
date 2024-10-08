@@ -13,7 +13,7 @@ useSeoMeta({
     <div class="navbar">
       <ul>
         <li>
-          <p class="title">Secure Access For Agent</p>
+          <p class="title">Techtack-Technologies</p>
         </li>
         <li>
           <NuxtLink to="/login">
