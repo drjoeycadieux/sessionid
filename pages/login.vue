@@ -1,24 +1,27 @@
 <template>
-   <div class="container">
-    <div class="login-container">
-        <h1>Login</h1>
-        <form @submit.prevent="handleLogin">
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" v-model="email" required />
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" v-model="password" required />
-            </div>
-            <button type="submit">Login</button>
-            <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-        </form>
+    <div class="container">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form @submit.prevent="handleLogin">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" v-model="email" required />
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" v-model="password" required />
+                </div>
+                <button type="submit">Login</button>
+                <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+            </form>
+        </div>
     </div>
-   </div>
 </template>
 
 <script>
+import { auth } from "@/firebase"; // Import Firebase auth from the firebase.js file
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 export default {
     data() {
         return {
@@ -28,24 +31,29 @@ export default {
         };
     },
     methods: {
-        handleLogin() {
-            // Simulate a login action
-            if (this.email && this.password) {
-                // Replace with actual login logic
-                console.log('Logging in with:', this.email, this.password);
-                this.errorMessage = ''; // Clear error message
-            } else {
-                this.errorMessage = 'Please fill in all fields.';
+        // Login handler with async/await and error handling
+        async handleLogin() {
+            this.errorMessage = ''; // Clear any existing error message
+
+            try {
+                await signInWithEmailAndPassword(auth, this.email, this.password);
+                console.log('Login successful');
+                // Add your redirect logic here, e.g., this.$router.push('/dashboard')
+            } catch (error) {
+                this.errorMessage = error.message; // Show the error message to the user
             }
         },
     },
 };
 </script>
 
+
+
 <style scoped>
 .container {
     padding-top: 125px;
 }
+
 .login-container {
     max-width: 400px;
     margin: auto;
