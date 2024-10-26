@@ -1,14 +1,14 @@
 <script setup>
 useSeoMeta({
   title: 'SessionID - Powered By Techtack-Technologies',
-  description: 'Our Parent Company From TeamLitho'
+  description: 'Secure Access For Agent.'
 })
 </script>
 
 
 
 <template>
-  <!-- <AppAlerts /> -->
+<AppAlerts />
   <div>
     <div class="navbar">
       <ul>
@@ -29,22 +29,18 @@ useSeoMeta({
 
 
 <style>
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #ffff;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #2d3748;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -63,6 +59,7 @@ body {
   font-family: sans-serif;
   color: white;
   font-size: 23px;
+  font-weight: bold;
 }
 
 .navbar {
