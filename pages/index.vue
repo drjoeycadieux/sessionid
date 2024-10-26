@@ -15,11 +15,6 @@ useSeoMeta({
         <li>
           <p class="title">Techtack-Technologies</p>
         </li>
-        <li>
-          <NuxtLink to="/login">
-            Login
-          </NuxtLink>
-        </li>
       </ul>
     </div>
     <AppHeader />
