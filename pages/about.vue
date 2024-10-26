@@ -3,6 +3,7 @@
 <template>
     <div>
         <Navbar />
+        <AppHeader/>
         <br>
         <div class="content-container">
             <h1>
