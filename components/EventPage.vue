@@ -1,0 +1,75 @@
+<template>
+    <div>
+        <Navbar/>
+        <div class="event-page">
+            <h1 class="event-title">{{ event.title }}</h1>
+            <p class="event-date">{{ event.date }}</p>
+            <p class="event-location">{{ event.location }}</p>
+            <p class="event-description">{{ event.description }}</p>
+            <button @click="register">Register Now</button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            event: {
+                title: "Vue.js Workshop",
+                date: "November 10, 2024",
+                location: "Online",
+                description: "Join us for a comprehensive workshop on Vue.js, where we will cover the basics and advanced features of this powerful JavaScript framework."
+            }
+        };
+    },
+    methods: {
+        register() {
+            alert('Thank you for registering!');
+        }
+    }
+};
+</script>
+
+<style scoped>
+.event-page {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.event-title {
+    font-size: 2em;
+    color: #333;
+}
+
+.event-date,
+.event-location {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.event-description {
+    margin: 20px 0;
+    font-size: 1em;
+    color: #444;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
