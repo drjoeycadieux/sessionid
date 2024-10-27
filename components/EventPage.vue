@@ -8,7 +8,8 @@
             <p class="event-date">{{ event.date }}</p>
             <p class="event-location">{{ event.location }}</p>
             <p class="event-description">{{ event.description }}</p>
-            <button @click="register">Register Now</button>
+            <!-- <button @click="register">Register Now</button> -->
+            <p class="register-not-open">Not open yet for register.</p>
         </div>
     </div>
 </template>
@@ -44,6 +45,11 @@ export default {
     background-color: #fff;
 
     font-family: sans-serif;
+}
+.register-not-open {
+    color: firebrick;
+    font-family: sans-serif;
+    font-weight: 500;
 }
 
 .event-title {
