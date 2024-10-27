@@ -22,8 +22,12 @@ export default {
             </h1>
             <br>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quidem sit facere eligendi! Enim a ab
-                dolorem repellendus nam quaerat, nemo fugit ipsum nulla, laborum aut vel illum nisi praesentium.
+                Techtack Technologies is a fictional universe centered around advanced technology and innovation. It
+                often explores themes like artificial intelligence, virtual reality, and the impact of tech on society.
+                The narrative may include futuristic cities, cutting-edge gadgets, and ethical dilemmas faced by
+                characters as they navigate a rapidly evolving digital landscape. The universe emphasizes both the
+                potential benefits and challenges of technology, showcasing a diverse range of characters—from visionary
+                entrepreneurs to hackers—who shape the world around them.
             </p>
             <div class="button-container">
                 <button class="button" type="button">Get Started</button>
@@ -33,9 +37,9 @@ export default {
         <div class="glass">
             <h1>{{ aboutId.heading }}</h1>
             <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem corrupti voluptatibus vitae magnam ad
-                facere, aperiam dolorum corporis, beatae consequuntur neque, voluptate dolore ea commodi illum explicabo
-                a! Asperiores, magni.</p>
+            <p>Techtack Technologies is a fictional universe focused on advanced tech and innovation. It explores themes
+                like AI, virtual reality, and the societal impact of technology, featuring diverse characters who
+                navigate the benefits and challenges of a rapidly evolving digital landscape.</p>
             <button class="outline-button" type="button">Event</button>
         </div>
         <br>

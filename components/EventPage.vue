@@ -2,6 +2,7 @@
     <div>
         <Navbar/>
         <AppHeader/>
+        <br/>
         <div class="event-page">
             <h1 class="event-title">{{ event.title }}</h1>
             <p class="event-date">{{ event.date }}</p>
@@ -17,10 +18,10 @@ export default {
     data() {
         return {
             event: {
-                title: "Vue.js Workshop",
+                title: "Techtack-Technologies - Universe",
                 date: "November 10, 2024",
                 location: "Online",
-                description: "Join us for a comprehensive workshop on Vue.js, where we will cover the basics and advanced features of this powerful JavaScript framework."
+                description: "Join Us. Techtack Technologies is a fictional universe focused on advanced tech and innovation. It explores themes like AI, virtual reality, and the societal impact of technology, featuring diverse characters who navigate the benefits and challenges of a rapidly evolving digital landscape."
             }
         };
     },
@@ -41,6 +42,8 @@ export default {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+
+    font-family: sans-serif;
 }
 
 .event-title {

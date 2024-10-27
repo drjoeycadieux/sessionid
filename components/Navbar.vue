@@ -15,6 +15,11 @@
                         About
                     </NuxtLink>
                 </li>
+                <li>
+                    <NuxtLink to="/event">
+                        Event
+                    </NuxtLink>
+                </li>
             </ul>
         </div>
     </div>
