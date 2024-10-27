@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div id="app">
+    <div>
       <EventPage />
     </div>
   </template>
