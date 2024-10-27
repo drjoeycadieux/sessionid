@@ -20,8 +20,8 @@ export default {
         return {
             event: {
                 title: "Techtack-Technologies - Universe",
-                date: "November 10, 2024",
-                location: "Online",
+                date: "December 15, 2024",
+                location: "Online & Montreal, QC",
                 description: "Join Us. Techtack Technologies is a fictional universe focused on advanced tech and innovation. It explores themes like AI, virtual reality, and the societal impact of technology, featuring diverse characters who navigate the benefits and challenges of a rapidly evolving digital landscape."
             }
         };
