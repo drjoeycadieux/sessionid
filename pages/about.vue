@@ -1,13 +1,24 @@
-<script setup></script>
+<script>
+export default {
+    data() {
+        return {
+            aboutId: {
+                title: "Our Company",
+                heading: "Event :: Universe"
+            }
+        }
+    }
+}
+</script>
 
 <template>
     <div>
         <Navbar />
-        <AppHeader/>
+        <AppHeader />
         <br>
         <div class="content-container">
             <h1>
-                Our Company
+                {{ aboutId.title }}
             </h1>
             <br>
             <p>
@@ -20,12 +31,12 @@
         </div>
         <br />
         <div class="glass">
-            <h1>Event :: Universe</h1>
+            <h1>{{ aboutId.heading }}</h1>
             <br>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem corrupti voluptatibus vitae magnam ad
                 facere, aperiam dolorum corporis, beatae consequuntur neque, voluptate dolore ea commodi illum explicabo
                 a! Asperiores, magni.</p>
-                <button class="outline-button" type="button">Event</button>
+            <button class="outline-button" type="button">Event</button>
         </div>
         <br>
         <AppFooter />
