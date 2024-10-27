@@ -1,6 +1,7 @@
 <template>
     <div>
         <Navbar/>
+        <AppHeader/>
         <div class="event-page">
             <h1 class="event-title">{{ event.title }}</h1>
             <p class="event-date">{{ event.date }}</p>
