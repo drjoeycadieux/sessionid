@@ -1,8 +1,8 @@
 <template>
     <div>
-        <Navbar/>
-        <AppHeader/>
-        <br/>
+        <Navbar />
+        <AppHeader />
+        <br />
         <div class="event-page">
             <h1 class="event-title">{{ event.title }}</h1>
             <p class="event-date">{{ event.date }}</p>
@@ -46,10 +46,16 @@ export default {
 
     font-family: sans-serif;
 }
+
 .register-not-open {
     color: firebrick;
     font-family: sans-serif;
     font-weight: 500;
+    border: firebrick solid 2px;
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .event-title {
