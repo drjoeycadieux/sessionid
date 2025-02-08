@@ -8,8 +8,8 @@ useSeoMeta({
 
 
 <template>
-  <AppAlerts />
   <SecurityIssues/>
+  <AppAlerts />
   <Navbar/>
   <div>
     <AppHeader />
