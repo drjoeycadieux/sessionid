@@ -10,4 +10,28 @@ services:
       - /node_modules
     environment:
       - NODE_ENV=production
+      - DB_HOST=localhost
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=Wteamred900
+      - DB_NAME=local
+    depends_on:
+      - mysql
     command: ["npm", "run", "preview"]
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Wteamred900
+      MYSQL_DATABASE: local
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Wteamred900
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
