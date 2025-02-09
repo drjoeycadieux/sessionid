@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         async submitForm() {
-            const supabase = createClient('https://ocwwnpkmkmbunrnmpfiz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jd3ducGtta21idW5ybm1wZml6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk3MjkzODMsImV4cCI6MjAyNTMwNTM4M30.iOiVXYJhNZKBF1clbYPa14Bm3f5l4wyUye0dx60DV8g');
+            const supabase = createClient('#NOT_CONNECTED', '#NOT_CONNECTED');
             const { data, error } = await supabase.from('contact_form').insert([this.formData]);
 
             if (error) {
