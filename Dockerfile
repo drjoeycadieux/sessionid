@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the Nuxt default port
-EXPOSE 8000
+EXPOSE 3000
 
 # Start the Nuxt application
 CMD ["npm", "run", "preview"]
