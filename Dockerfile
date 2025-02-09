@@ -2,7 +2,7 @@
 FROM node:20
 
 # Set the working directory
-WORKDIR ./
+WORKDIR /
 
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
