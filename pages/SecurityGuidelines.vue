@@ -41,4 +41,47 @@ import AppHeader from '../components/AppHeader.vue';
     font-size: 4rem;
     font-weight: bold;
 }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .header-guidelines p {
+        font-size: 4rem;
+    }
+
+    .header-guidelines h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-guidelines {
+        padding: 125px;
+        position: relative;
+        z-index: 5;
+        border-bottom-left-radius: 15% 39px;
+        border-bottom-right-radius: 15% 39px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-guidelines p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-guidelines h3 {
+        font-size: 16px;
+    }
+}
 </style>
