@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:18  # Ensure it's Node.js 18+ (adjust based on Nuxt requirements)
+      - image: node:18  # Use the official Node.js image instead of circleci/node
     steps:
       - checkout
       - run:
@@ -14,10 +14,17 @@ jobs:
           command: npm install
       - run:
           name: Prepare Nuxt
-          command: npx nuxt prepare  # Ensure correct command
+          command: npx nuxt prepare
       - run:
           name: Run Tests
           command: npm test
       - run:
           name: Build Nuxt Project
           command: npm run build
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+
