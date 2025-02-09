@@ -3,28 +3,21 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:18  # Ensure it's Node.js 18+ (adjust based on Nuxt requirements)
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: Check Node.js Version
+          command: node -v
       - run:
           name: Install Dependencies
-          command: npm ci
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+          command: npm install
+      - run:
+          name: Prepare Nuxt
+          command: npx nuxt prepare  # Ensure correct command
       - run:
           name: Run Tests
           command: npm test
       - run:
-          name: Build Project
+          name: Build Nuxt Project
           command: npm run build
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
