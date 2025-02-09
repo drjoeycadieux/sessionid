@@ -20,6 +20,11 @@
                         Event
                     </NuxtLink>
                 </li>
+                <li>
+                    <NuxtLink to="/securityguidelines">
+                        Security Guidelines
+                    </NuxtLink>
+                </li>
             </ul>
         </div>
     </div>
