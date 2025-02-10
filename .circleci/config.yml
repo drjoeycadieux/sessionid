@@ -1,30 +1,47 @@
 version: 2.1
 
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:20.16  # CircleCI Node.js image
+    working_directory: ~/
+
 jobs:
   build:
-    docker:
-      - image: node:20  # Use the official Node.js image instead of circleci/node
+    executor: node-executor
+    steps:
+      - checkout  # Check out the code from the repository
+      - run:
+          name: Set up Docker
+          command: |
+            docker --version
+            docker-compose --version
+
+      - run:
+          name: Build Docker image
+          command: |
+            docker-compose -f docker-compose.yml build
+
+      - run:
+          name: Run tests (if any)
+          command: |
+            docker-compose -f docker-compose.yml run nuxt npm run test
+
+  deploy:
+    executor: node-executor
     steps:
       - checkout
       - run:
-          name: Check Node.js Version
-          command: node -v
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Prepare Nuxt
-          command: npx nuxt prepare
-      - run:
-          name: Run Tests
-          command: npm test
-      - run:
-          name: Build Nuxt Project
-          command: npm run build
+          name: Set up Docker and Docker Compose
+          command: |
+            docker-compose -f docker-compose.yml build
+            docker-compose -f docker-compose.yml up -d
 
 workflows:
   version: 2
-  build_and_test:
+  build_and_deploy:
     jobs:
       - build
-
+      - deploy:
+          requires:
+            - build
