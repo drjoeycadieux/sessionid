@@ -1,23 +1,29 @@
-# Use an official Node.js runtime as a parent image
-FROM node:20
+# Use the official Node.js image as a base
+FROM node:18-alpine AS build
 
 # Set the working directory
 WORKDIR /
 
-# Copy package.json and package-lock.json (or yarn.lock)
-COPY package*.json ./
-
-# Install dependencies
+# Copy package.json and install dependencies
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of the application
+# Copy the entire project
 COPY . .
 
 # Build the Nuxt app
 RUN npm run build
 
-# Expose the Nuxt default port
+# Use a lightweight Node.js image for production
+FROM node:18-alpine
+
+WORKDIR /
+
+# Copy built files from the build stage
+COPY --from=build /.output ./
+
+# Expose the Nuxt port
 EXPOSE 3000
 
-# Start the Nuxt application
-CMD ["npm", "run", "preview"]
+# Start Nuxt
+CMD ["node", "server/index.mjs"]
