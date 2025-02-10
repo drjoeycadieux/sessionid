@@ -4,7 +4,7 @@ executors:
   node-executor:
     docker:
       - image: cimg/node:20.16  # CircleCI Node.js image
-    working_directory: ~/
+    working_directory: ~/repo  # Default working directory (this is where CircleCI checks out the code)
 
 jobs:
   build:
