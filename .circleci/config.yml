@@ -4,11 +4,18 @@ executors:
   node-executor:
     docker:
       - image: cimg/node:20.16  # CircleCI Node.js image
-    working_directory: ~/repo  # Default working directory (this is where CircleCI checks out the code)
+    environment:
+      DOCKER_TLS_VERIFY: "1"
+      DOCKER_HOST: "tcp://docker:2376"
+      DOCKER_CERT_PATH: "/certs/client"
+      DOCKER_DRIVER: "overlay2"
+    working_directory: ~/repo
 
 jobs:
   build:
     executor: node-executor
+    docker:
+      - image: docker:19.03.12-dind  # Docker-in-Docker (DinD) image
     steps:
       - checkout  # Check out the code from the repository
       - run:
