@@ -9,7 +9,7 @@ const successMessage = ref('');
 const submitForm = async () => {
   successMessage.value = '';
   try {
-    const response = await fetch('server/api/contact.ts', {
+    const response = await fetch('server/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -62,8 +62,11 @@ const submitForm = async () => {
   max-width: 400px;
   margin: auto;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 8px;
+}
+.form-container p {
+  color: white;
+  font-family: sans-serif;
 }
 input, textarea {
   width: 100%;
