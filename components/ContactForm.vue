@@ -37,7 +37,6 @@ const submitForm = async () => {
 
 <template>
   <div class="form-container">
-    <h1>Contact Us</h1>
     <form @submit.prevent="submitForm">
       <div>
         <label for="name">Name:</label>
