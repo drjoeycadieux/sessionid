@@ -8,11 +8,8 @@ executors:
 
 jobs:
   build:
-    executor: node-executor
     docker:
-      - image: docker:19.03.12  # Docker image (not DinD)
-    services:
-      - docker  # Adds the Docker service to the job
+      - image: docker:19.03.12  # Docker image
     steps:
       - checkout  # Check out the code from the repository
       - run:
@@ -20,23 +17,18 @@ jobs:
           command: |
             docker --version
             docker-compose --version
-
       - run:
           name: Build Docker image
           command: |
             docker-compose -f docker-compose.yml build
-
       - run:
           name: Run tests (if any)
           command: |
             docker-compose -f docker-compose.yml run nuxt npm run test
 
   deploy:
-    executor: node-executor
     docker:
-      - image: docker:19.03.12
-    services:
-      - docker  # Adds the Docker service to the deploy job
+      - image: docker:19.03.12  # Docker image for deploy job
     steps:
       - checkout
       - run:
@@ -44,10 +36,6 @@ jobs:
           command: |
             docker-compose -f docker-compose.yml build
             docker-compose -f docker-compose.yml up -d
-
-services:
-  docker:
-    image: docker:19.03.12  # Docker service
 
 workflows:
   version: 2
