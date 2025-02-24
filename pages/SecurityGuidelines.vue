@@ -15,7 +15,7 @@
 </template>
 
 
-<script>
+<script setup>
 import AppFooter from '../components/AppFooter.vue';
 import Navbar from  '../components/Navbar.vue';
 import AppHeader from '../components/AppHeader.vue';
