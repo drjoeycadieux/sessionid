@@ -2,18 +2,22 @@ version: '3.8'
 
 services:
   nuxt:
-    image: node:20 # Node.js Docker image
-    working_dir: / # Set the working directory inside the container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
     volumes:
-      - /:/ # Bind the app directory to the container
-    command: npm run dev # Default command to start Nuxt.js in development mode
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
     ports:
-      - "3000:3000" # Expose port 3000 for Nuxt.js app
+      - "3000:3000"
     environment:
       - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=3000
     networks:
       - nuxt_network
-  # You can add other services like databases, caches, etc. if needed.
 
 networks:
   nuxt_network:

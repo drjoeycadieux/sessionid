@@ -3,53 +3,64 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: docker:19.03.12  # Docker image for Docker commands
+      - image: cimg/node:20.11
     working_directory: ~/repo
 
 jobs:
   build:
-    docker:
-      - image: docker:19.03.12  # Docker image for build job
-    steps:
-      - checkout  # Check out the code from the repository
-      - run:
-          name: Install curl and docker-compose
-          command: |
-            apt-get update && apt-get install -y curl  # Install curl
-            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-            docker-compose --version  # Verify docker-compose installation
-      - run:
-          name: Set up Docker
-          command: |
-            docker --version
-            docker-compose --version
-      - run:
-          name: Build Docker image
-          command: |
-            docker-compose -f docker-compose.yml build
-      - run:
-          name: Run tests (if any)
-          command: |
-            docker-compose -f docker-compose.yml run nuxt npm run test
-
-  deploy:
-    docker:
-      - image: docker:19.03.12  # Docker image for deploy job
+    executor: node-executor
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
-          name: Install curl and docker-compose
-          command: |
-            apt-get update && apt-get install -y curl  # Install curl
-            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-            docker-compose --version  # Verify docker-compose installation
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: Set up Docker and Docker Compose
+          name: Build application
+          command: npm run build
+      - run:
+          name: Run tests
+          command: npm run test
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+
+  deploy:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Install Docker Compose
           command: |
-            docker-compose -f docker-compose.yml build
-            docker-compose -f docker-compose.yml up -d
+            sudo curl -L "https://github.com/docker/compose/releases/download/2.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+            docker-compose --version
+      - run:
+          name: Build and start services
+          command: |
+            cd ~/repo
+            docker-compose build
+            docker-compose up -d
+      - run:
+          name: Wait for application to be ready
+          command: |
+            sleep 30
+            curl -f http://localhost:3000 || exit 1
+      - run:
+          name: Stop services
+          command: |
+            cd ~/repo
+            docker-compose down
 
 workflows:
   version: 2
@@ -59,3 +70,8 @@ workflows:
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - main
+                - master
