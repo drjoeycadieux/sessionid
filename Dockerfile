@@ -1,10 +1,10 @@
-# Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+# Use official Node.js 20 image as the base
+FROM node:20
 
-# Set the working directory
-WORKDIR ./
+# Set working directory in the container
+WORKDIR /
 
-# Copy package.json and package-lock.json (or yarn.lock)
+# Copy package.json and package-lock.json (or yarn.lock) first to leverage Docker cache
 COPY package*.json ./
 
 # Install dependencies
@@ -13,11 +13,12 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-# Build the Nuxt app
+# Build Nuxt 3 app
 RUN npm run build
 
-# Expose the Nuxt default port
+# Expose the default port (3000) for Nuxt 3
 EXPOSE 3000
 
-# Start the Nuxt application
-CMD ["npm", "run", "preview"]
+# Start Nuxt 3 app
+CMD ["npm", "run", "start"]
+

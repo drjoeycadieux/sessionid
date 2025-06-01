@@ -1,102 +1,85 @@
-<template>
-    <div class="contact-form-container">
-        <form @submit.prevent="submitForm" class="contact-form">
-            <div class="form-group">
-                <label for="fname">First Name</label>
-                <input id="fname" v-model="formData.fname" class="form-control" required>
-            </div>
+<script setup lang="ts">
+import { ref } from 'vue';
 
-            <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input id="lname" v-model="formData.lname" class="form-control" required>
-            </div>
+const name = ref('');
+const email = ref('');
+const message = ref('');
+const successMessage = ref('');
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" v-model="formData.email" class="form-control" required>
-            </div>
+const submitForm = async () => {
+  successMessage.value = '';
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        message: message.value,
+      }),
+    });
 
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" v-model="formData.message" class="form-control" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">Submit</button>
-        </form>
-    </div>
-</template>
-
-<script>
-import { createClient } from '@supabase/supabase-js';
-
-export default {
-    data() {
-        return {
-            formData: {
-                fname: '',
-                lname: '',
-                email: '',
-                message: ''
-            }
-        };
-    },
-    methods: {
-        async submitForm() {
-            const supabase = createClient('#NOT_CONNECTED', '#NOT_CONNECTED');
-            const { data, error } = await supabase.from('contact_form').insert([this.formData]);
-
-            if (error) {
-                console.log('Error submitting form:', error.message);
-            } else {
-                console.log('Form submitted successfully:', data);
-                this.formData = { fname: '', lname: '', email: '', message: '' };
-            }
-        }
+    const result = await response.json();
+    if (result.success) {
+      successMessage.value = 'Form submitted successfully!';
+      name.value = '';
+      email.value = '';
+      message.value = '';
+    } else {
+      successMessage.value = 'Submission failed!';
     }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    successMessage.value = 'An error occurred.';
+  }
 };
 </script>
 
+<template>
+  <div class="form-container">
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" required />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" v-model="message" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <p v-if="successMessage">{{ successMessage }}</p>
+  </div>
+</template>
+
 <style scoped>
-.contact-form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
 }
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family: sans-serif;
-    font-weight: bold;
+.form-container p {
+  color: white;
+  font-family: sans-serif;
 }
-
-.form-group {
-    margin-bottom: 15px;
+input, textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
 }
-
-.label {
-    font-weight: bold;
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
-
-.form-control {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-}
-
-.btn-submit {
-    background-color: #2d3748;
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+button:hover {
+  background-color: #0056b3;
 }
 </style>

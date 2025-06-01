@@ -1,5 +1,5 @@
 <h1 align="center">
- SessionID - Techtack-Technologies Product
+ SessionID - Techtack-Technologies
 </h1>
 
 ### Our Web Application
