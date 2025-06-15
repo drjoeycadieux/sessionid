@@ -8,12 +8,13 @@ useSeoMeta({
 
 
 <template>
-  <SecurityIssues/>
-  <AppAlerts />
-  <Navbar/>
+  <SecurityIssues />
+  <Navbar />
   <div>
     <AppHeader />
     <AppContent />
+    <br>
+    <ContactForm />
     <br>
     <AppFooter />
   </div>
