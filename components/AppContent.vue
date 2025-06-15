@@ -6,7 +6,7 @@
                 their visit to a website. It plays a crucial role in maintaining stateful interactions between the
                 user's browser and the web server throughout a session.
             </p>
-            <a href="https://secureaccessv2.onrender.com/index.html" target="_blank" rel="noopener noreferrer">
+            <a href="https://secureaccessv2.onrender.com" target="_blank" rel="noopener noreferrer">
                 <button class="button">
                     Open Web Application
                 </button>
