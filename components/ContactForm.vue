@@ -5,11 +5,14 @@ const name = ref('');
 const email = ref('');
 const message = ref('');
 const successMessage = ref('');
+const isLoading = ref(false);
 
 const submitForm = async () => {
   successMessage.value = '';
+  isLoading.value = true;
+  
   try {
-    const response = await fetch('/api/contact', {
+    const response = await fetch('../api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -20,17 +23,20 @@ const submitForm = async () => {
     });
 
     const result = await response.json();
-    if (result.success) {
-      successMessage.value = 'Form submitted successfully!';
+    
+    if (response.ok) {
+      successMessage.value = 'Thank you! Your message has been sent successfully.';
       name.value = '';
       email.value = '';
       message.value = '';
     } else {
-      successMessage.value = 'Submission failed!';
+      successMessage.value = result.error || 'Submission failed. Please try again.';
     }
   } catch (error) {
     console.error('Error submitting form:', error);
-    successMessage.value = 'An error occurred.';
+    successMessage.value = 'An error occurred while submitting the form. Please try again later.';
+  } finally {
+    isLoading.value = false;
   }
 };
 </script>
@@ -40,8 +46,7 @@ const submitForm = async () => {
     <div class="form-container">
       <div class="form-header">
         <h2 class="form-title">Get In Touch</h2>
-        <p class="form-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-        </p>
+        <p class="form-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
       </div>
 
       <form @submit.prevent="submitForm" class="contact-form">
@@ -62,22 +67,33 @@ const submitForm = async () => {
             placeholder="Tell us about your project or inquiry..." rows="6"></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">
-          <span class="btn-text">Send Message</span>
-          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+        <button type="submit" class="submit-btn" :disabled="isLoading">
+          <span class="btn-text">{{ isLoading ? 'Sending...' : 'Send Message' }}</span>
+          <svg v-if="!isLoading" class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
             <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
+          <svg v-else class="btn-icon animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4.93 4.93L7.76 7.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M16.24 16.24L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M2 12H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M18 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4.93 19.07L7.76 16.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
         </button>
       </form>
 
       <div v-if="successMessage" class="alert"
-        :class="successMessage.includes('successfully') ? 'alert-success' : 'alert-error'">
+        :class="successMessage.includes('Thank you') ? 'alert-success' : 'alert-error'">
         <div class="alert-icon">
-          <svg v-if="successMessage.includes('successfully')" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          <svg v-if="successMessage.includes('Thank you')" width="20" height="20" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
@@ -205,15 +221,20 @@ const submitForm = async () => {
   letter-spacing: 0.5px;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background: #ffffff;
   color: #161616;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
-.submit-btn:active {
+.submit-btn:active:not(:disabled) {
   transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .btn-text {
@@ -224,7 +245,7 @@ const submitForm = async () => {
   transition: transform 0.3s ease;
 }
 
-.submit-btn:hover .btn-icon {
+.submit-btn:hover:not(:disabled) .btn-icon:not(.animate-spin) {
   transform: translateX(4px);
 }
 
@@ -254,6 +275,35 @@ const submitForm = async () => {
   flex-shrink: 0;
 }
 
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .contact-section {
@@ -276,46 +326,25 @@ const submitForm = async () => {
 @media (max-width: 480px) {
   .form-container {
     padding: 1.5rem 1rem;
+  border-radius: 12px;
   }
 
   .form-title {
     font-size: 1.75rem;
+  margin-bottom: 0.75rem;
   }
-}
-
-/* Animation for form load */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  
+  .form-subtitle {
+    font-size: 0.95rem;
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .form-input,
+  .form-textarea {
+    padding: 0.75rem 1rem;
   }
-}
-
-.form-container {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Custom scrollbar for textarea */
-.form-textarea::-webkit-scrollbar {
-  width: 6px;
-}
-
-.form-textarea::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.form-textarea::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.form-textarea::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  
+  .submit-btn {
+    padding: 0.75rem 1.5rem;
+  }
 }
 </style>
