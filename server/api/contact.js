@@ -1,4 +1,3 @@
-// api/contact.js
 require("dotenv").config();
 const { Pool } = require("pg");
 const express = require("express");
