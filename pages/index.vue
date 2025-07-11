@@ -1,4 +1,6 @@
 <script setup>
+import AppAlerts from '~/components/AppAlerts.vue';
+
 useSeoMeta({
   title: 'SessionID - Powered By Techtack-Technologies',
   description: 'Secure Access For Agent.'
@@ -8,6 +10,7 @@ useSeoMeta({
 
 
 <template>
+  <AppAlerts/>
   <Navbar />
   <div>
     <AppHeader />
