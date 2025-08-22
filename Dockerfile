@@ -8,7 +8,8 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install all dependencies (including dev dependencies for building)
-RUN npm ci
+# Configure npm for CI environments with potential SSL issues
+RUN npm config set strict-ssl false && npm ci && npm config set strict-ssl true
 
 # Copy the rest of the application
 COPY . .
